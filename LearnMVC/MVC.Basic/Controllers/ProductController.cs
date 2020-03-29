@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MVC.Basic.Infrustructure.Filters;
 using MVC.Basic.Models;
 using MVC.Basic.Repositories;
 
 namespace MVC.Basic.Controllers
 {
+    //[TypeFilter(typeof(CustomExceptionFilter))]
     public class ProductController : Controller
     {
         // GET: Product
@@ -34,6 +36,8 @@ namespace MVC.Basic.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Motorcycle motorcycle)
         {
+            throw new Exception();
+
             try
             {
                 if (!ModelState.IsValid) return View(motorcycle);

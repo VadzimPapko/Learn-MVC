@@ -50,9 +50,22 @@ namespace MVC.Basic
 
             app.UseEndpoints(endpoints =>
             {
+                //default
+                //endpoints.MapDefaultControllerRoute();
+
+                //endpoints.MapControllerRoute(
+                //    name: "default",
+                //    pattern: "{controller=Product}/{action=Index}/{id?}");
+
+                //static
+                //endpoints.MapControllerRoute(
+                //    name: "static",
+                //    pattern: "Moto/{controller=Product}/{action=Index}/{id?}");
+
+                //restriction
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    name: "static",
+                    pattern: "{controller=Product}/{action=Index}/{id:int:range(0,10)?}");
             });
         }
     }

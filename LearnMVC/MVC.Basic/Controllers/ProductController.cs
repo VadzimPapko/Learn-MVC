@@ -11,9 +11,12 @@ using MVC.Basic.Repositories;
 namespace MVC.Basic.Controllers
 {
     //[TypeFilter(typeof(CustomExceptionFilter))]
+    //[Route("[controller]/[action]/{id?}")]
     public class ProductController : Controller
     {
         // GET: Product
+        //[Route("motorcycles")]
+        //[Route("[controller]/motorcycles")]
         public ActionResult Index()
         {
             return View(MotorcycleRepository.Motorcycles);
@@ -24,6 +27,14 @@ namespace MVC.Basic.Controllers
         {
             return View(MotorcycleRepository.Motorcycles.FirstOrDefault(_ => _.Id == id));
         }
+
+        /*
+        // GET: Product/Details/Test
+        public ActionResult Details(string id)
+        {
+            return View($"id- {id}");
+        }
+        */
 
         // GET: Product/Create
         public ActionResult Create()
